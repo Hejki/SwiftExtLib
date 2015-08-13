@@ -14,6 +14,8 @@
 		263A31EA1B7D1BD50099DA4A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 263A31E91B7D1BD50099DA4A /* README.md */; };
 		263A31ED1B7D26FD0099DA4A /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A31EC1B7D26FD0099DA4A /* SegueHandler.swift */; };
 		263A31EE1B7D2F920099DA4A /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A31EC1B7D26FD0099DA4A /* SegueHandler.swift */; };
+		263A31F01B7D3CF90099DA4A /* SegueHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A31EF1B7D3CF90099DA4A /* SegueHandlerTest.swift */; };
+		263A31F21B7D401B0099DA4A /* SegueHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A31F11B7D401B0099DA4A /* SegueHandlerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		263A31E91B7D1BD50099DA4A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		263A31EB1B7D232A0099DA4A /* SwiftExtLib.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftExtLib.podspec; sourceTree = "<group>"; };
 		263A31EC1B7D26FD0099DA4A /* SegueHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandler.swift; sourceTree = "<group>"; };
+		263A31EF1B7D3CF90099DA4A /* SegueHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerTest.swift; sourceTree = "<group>"; };
+		263A31F11B7D401B0099DA4A /* SegueHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				263A31D31B7CBECD0099DA4A /* ColorTest.swift */,
+				263A31EF1B7D3CF90099DA4A /* SegueHandlerTest.swift */,
 				263A31D51B7CBECD0099DA4A /* Info.plist */,
 			);
 			path = "iOS Tests";
@@ -92,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				263A31E21B7CCB580099DA4A /* ColorTest.swift */,
+				263A31F11B7D401B0099DA4A /* SegueHandlerTest.swift */,
 				263A31E41B7CCB580099DA4A /* Info.plist */,
 			);
 			path = "OSX Tests";
@@ -193,6 +199,7 @@
 				263A31ED1B7D26FD0099DA4A /* SegueHandler.swift in Sources */,
 				263A31EA1B7D1BD50099DA4A /* README.md in Sources */,
 				263A31D41B7CBECD0099DA4A /* ColorTest.swift in Sources */,
+				263A31F01B7D3CF90099DA4A /* SegueHandlerTest.swift in Sources */,
 				263A31DA1B7CBEEF0099DA4A /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				263A31F21B7D401B0099DA4A /* SegueHandlerTest.swift in Sources */,
 				263A31EE1B7D2F920099DA4A /* SegueHandler.swift in Sources */,
 				263A31E31B7CCB580099DA4A /* ColorTest.swift in Sources */,
 				263A31E81B7CCB8C0099DA4A /* Color.swift in Sources */,

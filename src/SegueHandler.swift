@@ -19,8 +19,8 @@ public protocol SegueHandler {
 #if os(iOS)
 public extension SegueHandler where Self: UIViewController, SegueIdentifier.RawValue == String {
     
-    func performSegueWithIdentifier(identifier: SegueIdentifier, sender: AnyObject?) {
-        performSegueWithIdentifier(identifier.rawValue, sender: sender)
+    func performSegueWithIdentifier(segueIdentifier: SegueIdentifier, sender: AnyObject?) {
+        performSegueWithIdentifier(segueIdentifier.rawValue, sender: sender)
     }
     
     func segueIdentifierForSegue(segue: UIStoryboardSegue) -> SegueIdentifier {
