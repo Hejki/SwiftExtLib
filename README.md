@@ -1,4 +1,4 @@
-# iOS Extensions
+# Swift Libraries Extensions
 
 ## Requirements
 
@@ -23,18 +23,18 @@ Note that it needs you to install CocoaPods 0.36 version, and requires your iOS 
 
 ## Usage
 
-### UIColor
+### UIColor (iOS), NSColor (OSX)
 
 Init color by passing hex value.
 
-``` swift
+```swift
 // Color from hex representation
 UIColor(hex: 0x00FF00)
 ```
 
 For centralizing color values you can use own custom type with color definitions (which extends `RawRepresentable where RawValue == Int`)
 
-``` swift
+```swift
 // Custom enum type
 enum AppColors: Int {
     case Blue = 0x000022
@@ -45,4 +45,39 @@ UIColor(named: AppColors.Blue)
 
 // Or use predefined enum Colors
 UIColor(named: Colors.Pink)
+```
+
+### SegueHandler (iOS, OSX)
+
+Type safe segue handling. Start with define `SegueIdentifier`s in your `UIViewController` or `NSViewController`.
+```swift
+class MyViewController: UIViewController, SegueHandler {
+    enum SegueIdentifier {
+        case ShowImportUnicorn = "ShowImportUnicorn"
+        case ShowEditUnicorn = "ShowEditUnicorn"
+    }
+}
+```
+
+Use function `performSegueWithIdentifier` for performs the specific segue.
+```swift
+class MyViewController: UIViewController, SegueHandler {
+    ...
+    func handleAction(sender: AnyObject?) {
+        performSegueWithIdentifier(.ShowImportUnicorn, sender: sender)
+    }
+}
+```
+
+Use function `segueIdentifierForSegue` for obtain `SegueIdentifier` for `prepareForSegue` method or otherview controller methods.
+```swift
+class MyViewController: UIViewController, SegueHandler {
+    ...
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segueIdentifierForSegue(segue) {
+            case .ShowImportUnicorn:    // Config...
+            case .ShowEditUnicorn: // Config...
+        }
+    }
+}
 ```
