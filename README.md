@@ -1,14 +1,14 @@
 # iOS Extensions
 
-# Requirements
+## Requirements
 
 * iOS 7.0+ / OSX 10.9+
 * XCode 7.0
 * Swift 2.0
 
-# Integration
+## Integration
 
-## CocoaPods
+### CocoaPods
 
 You can use [Cocoapods](https://cocoapods.org) to install `SwiftExtLib` by adding it to your `Podfile`:
 ```ruby
@@ -21,7 +21,9 @@ end
 ```
 Note that it needs you to install CocoaPods 0.36 version, and requires your iOS deploy target >= 8.0
 
-## UIColor
+## Usage
+
+### UIColor
 
 Init color by passing hex value.
 
@@ -44,7 +46,3 @@ UIColor(named: AppColors.Blue)
 // Or use predefined enum Colors
 UIColor(named: Colors.Pink)
 ```
-
-# Installation
-
-## Cocoapods
