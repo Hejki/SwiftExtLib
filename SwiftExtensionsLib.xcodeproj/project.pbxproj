@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261414D31B85EAC100137E9D /* TableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261414D21B85EAC100137E9D /* TableViewHandler.swift */; };
+		261414D51B85ED9100137E9D /* TableViewHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261414D41B85ED9100137E9D /* TableViewHandlerTest.swift */; };
 		263A31D41B7CBECD0099DA4A /* ColorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A31D31B7CBECD0099DA4A /* ColorTest.swift */; };
 		263A31DA1B7CBEEF0099DA4A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A31D91B7CBEEF0099DA4A /* Color.swift */; };
 		263A31E31B7CCB580099DA4A /* ColorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263A31E21B7CCB580099DA4A /* ColorTest.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		261414D21B85EAC100137E9D /* TableViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHandler.swift; sourceTree = "<group>"; };
+		261414D41B85ED9100137E9D /* TableViewHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHandlerTest.swift; sourceTree = "<group>"; };
 		263A31D01B7CBECD0099DA4A /* iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		263A31D31B7CBECD0099DA4A /* ColorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTest.swift; sourceTree = "<group>"; };
 		263A31D51B7CBECD0099DA4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 			children = (
 				263A31D91B7CBEEF0099DA4A /* Color.swift */,
 				263A31EC1B7D26FD0099DA4A /* SegueHandler.swift */,
+				261414D21B85EAC100137E9D /* TableViewHandler.swift */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -88,6 +93,7 @@
 			children = (
 				263A31D31B7CBECD0099DA4A /* ColorTest.swift */,
 				263A31EF1B7D3CF90099DA4A /* SegueHandlerTest.swift */,
+				261414D41B85ED9100137E9D /* TableViewHandlerTest.swift */,
 				263A31D51B7CBECD0099DA4A /* Info.plist */,
 			);
 			path = "iOS Tests";
@@ -198,7 +204,9 @@
 			files = (
 				263A31ED1B7D26FD0099DA4A /* SegueHandler.swift in Sources */,
 				263A31EA1B7D1BD50099DA4A /* README.md in Sources */,
+				261414D31B85EAC100137E9D /* TableViewHandler.swift in Sources */,
 				263A31D41B7CBECD0099DA4A /* ColorTest.swift in Sources */,
+				261414D51B85ED9100137E9D /* TableViewHandlerTest.swift in Sources */,
 				263A31F01B7D3CF90099DA4A /* SegueHandlerTest.swift in Sources */,
 				263A31DA1B7CBEEF0099DA4A /* Color.swift in Sources */,
 			);
@@ -221,12 +229,16 @@
 		263A31C91B7CBE100099DA4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 			};
 			name = Debug;
 		};
 		263A31CA1B7CBE100099DA4A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 			};
 			name = Release;
 		};
@@ -424,6 +436,7 @@
 				263A31D81B7CBECD0099DA4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		263A31E51B7CCB580099DA4A /* Build configuration list for PBXNativeTarget "OSX Tests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +445,7 @@
 				263A31E71B7CCB580099DA4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
