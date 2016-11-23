@@ -22,28 +22,31 @@
 // SOFTWARE.
 //
 
-#if os(iOS)
-    import UIKit
-#else
-    import AppKit
-#endif
+import AppKit
 
-public protocol TableViewHandler {
-    associatedtype CellIdentifier: RawRepresentable
-}
+/// Wiew with spefified colored background.
+@IBDesignable
+public class ColorView: NSView {
 
-#if os(iOS)
-public extension TableViewHandler where Self: UITableViewDataSource, CellIdentifier.RawValue == String {
+    /// Color of bacgkround for this view
+    @IBInspectable
+    var backgroundColor: NSColor = .controlBackgroundColor
+    
+    @IBInspectable
+    var backgroundColor2: NSColor?
+    
+    @IBInspectable
+    var gradientAngle: Float = 0
 
-    func dequeueReusableCellWithIdentifier(_ cellIdentifier: CellIdentifier, tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: cellIdentifier.rawValue, for: indexPath)
+    override public func draw(_ dirtyRect: NSRect) {
+        if let secondColor = backgroundColor2 { // draw gradient
+            let gradient = NSGradient(colors: [backgroundColor, secondColor])
+            let bezierPath = NSBezierPath(rect: self.bounds)
+            
+            gradient?.draw(in: bezierPath, angle: CGFloat(gradientAngle))
+        } else {
+            backgroundColor.setFill()
+            NSRectFill(dirtyRect)
+        }
     }
 }
-#else
-//public extension TableViewHandler where Self: NSTableViewDataSource, CellIdentifier.RawValue == String {
-//    
-//    func dequeueReusableCellWithIdentifier(cellIdentifier: CellIdentifier, tableView: NSTableView, forIndexPath indexPath: NSIndexPath) -> NSTableViewCell {
-//        return tableView.dequeueReusableCellWithIdentifier(cellIdentifier.rawValue, forIndexPath: indexPath)
-//    }
-//}
-#endif

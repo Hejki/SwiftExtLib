@@ -22,28 +22,29 @@
 // SOFTWARE.
 //
 
-#if os(iOS)
-    import UIKit
-#else
-    import AppKit
-#endif
+import Foundation
 
-public protocol TableViewHandler {
-    associatedtype CellIdentifier: RawRepresentable
-}
+public class OrderedSetArrayValueTransformer: ValueTransformer {
 
-#if os(iOS)
-public extension TableViewHandler where Self: UITableViewDataSource, CellIdentifier.RawValue == String {
+    override public class func transformedValueClass() -> AnyClass {
+        return NSArray.self
+    }
 
-    func dequeueReusableCellWithIdentifier(_ cellIdentifier: CellIdentifier, tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: cellIdentifier.rawValue, for: indexPath)
+    override public class func allowsReverseTransformation() -> Bool {
+        return true
+    }
+
+    override public func transformedValue(_ value: Any?) -> Any? {
+        if let orderedSet = value as? NSOrderedSet {
+            return orderedSet.array
+        }
+        return nil
+    }
+
+    override public func reverseTransformedValue(_ value: Any?) -> Any? {
+        if let array = value as? [AnyObject] {
+            return NSOrderedSet(array: array)
+        }
+        return nil
     }
 }
-#else
-//public extension TableViewHandler where Self: NSTableViewDataSource, CellIdentifier.RawValue == String {
-//    
-//    func dequeueReusableCellWithIdentifier(cellIdentifier: CellIdentifier, tableView: NSTableView, forIndexPath indexPath: NSIndexPath) -> NSTableViewCell {
-//        return tableView.dequeueReusableCellWithIdentifier(cellIdentifier.rawValue, forIndexPath: indexPath)
-//    }
-//}
-#endif

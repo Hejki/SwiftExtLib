@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+@testable import HejkiSwiftCore
 
 class MyViewController: UIViewController, SegueHandler {
     var performedId: String?
@@ -17,10 +18,10 @@ class MyViewController: UIViewController, SegueHandler {
     }
     
     func handle() {
-        performSegueWithIdentifier(.Id, sender: nil)
+        performSegue(withIdentifier: .Id)
     }
     
-    override func performSegueWithIdentifier(identifier: String, sender: AnyObject?) {
+    override func performSegue(withIdentifier identifier: String, sender: Any?) {
         performedId = identifier
     }
 }
@@ -34,7 +35,8 @@ class SegueHandlerTest: XCTestCase {
     }
     
     func testSegueIdentifierForSegue() {
-        let id = controller.segueIdentifierForSegue(UIStoryboardSegue(identifier: "id", source: controller, destination: controller))
+        let segue = UIStoryboardSegue(identifier: "id", source: controller, destination: controller)
+        let id = try! controller.segueIdentifier(for: segue)
         XCTAssertEqual(MyViewController.SegueIdentifier.Id, id)
     }
 }

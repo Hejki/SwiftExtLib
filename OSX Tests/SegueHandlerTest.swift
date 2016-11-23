@@ -8,6 +8,7 @@
 
 import Cocoa
 import XCTest
+@testable import HejkiSwiftCore
 
 @objc
 @available(OSX 10.10, *)
@@ -19,10 +20,10 @@ class MyViewController: NSObject, NSSeguePerforming, SegueHandler {
     }
     
     func handle() {
-        performSegueWithIdentifier(.Id, sender: nil)
+        performSegue(withIdentifier: .Id)
     }
     
-    func performSegueWithIdentifier(identifier: String, sender: AnyObject?) {
+    func performSegue(withIdentifier identifier: String, sender: Any?) {
         performedId = identifier
     }
 }
@@ -37,7 +38,23 @@ class SegueHandlerTest: XCTestCase {
     }
     
     func testSegueIdentifierForSegue() {
-        let id = controller.segueIdentifierForSegue(NSStoryboardSegue(identifier: "id", source: controller, destination: controller))
+        let segue = NSStoryboardSegue(identifier: "id", source: controller, destination: controller)
+        let id = try! controller.segueIdentifier(for: segue)
         XCTAssertEqual(MyViewController.SegueIdentifier.Id, id)
+    }
+    
+    func testunknownIdentifier() {
+        let segue = NSStoryboardSegue(identifier: "unknown", source: controller, destination: controller)
+        do {
+            _ = try controller.segueIdentifier(for: segue)
+            XCTFail("must throw error.")
+        } catch let e as HSCAppError {
+            XCTAssertEqual("org.hejki.macos.hejki-swift-core", e.domain)
+            XCTAssertEqual(0, e.code)
+            XCTAssertNil(e.recoverySuggestion)
+            XCTAssertEqual("Invalid segue identifier unknown", e.description)
+        } catch {
+            XCTFail("Bad error \(error)")
+        }
     }
 }

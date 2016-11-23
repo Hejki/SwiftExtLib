@@ -8,33 +8,34 @@
 
 import UIKit
 import XCTest
+@testable import HejkiSwiftCore
 
-class MyViewController: UITableViewController, TableViewHandler {
-    var performedId: String?
-    
-    enum SegueIdentifier: String {
-        case Id = "id"
-    }
-    
-    func handle() {
-        performSegueWithIdentifier(.Id, sender: nil)
-    }
-    
-    override func performSegueWithIdentifier(identifier: String, sender: AnyObject?) {
-        performedId = identifier
-    }
-}
-
-class SegueHandlerTest: XCTestCase {
-    var controller = MyViewController()
-    
-    func testPerformSegue() {
-        controller.handle()
-        XCTAssertEqual("id", controller.performedId)
-    }
-    
-    func testSegueIdentifierForSegue() {
-        let id = controller.segueIdentifierForSegue(UIStoryboardSegue(identifier: "id", source: controller, destination: controller))
-        XCTAssertEqual(MyViewController.SegueIdentifier.Id, id)
-    }
-}
+//class MyViewController: UITableViewController, TableViewHandler {
+//    var performedId: String?
+//    
+//    enum SegueIdentifier: String {
+//        case Id = "id"
+//    }
+//    
+//    func handle() {
+//        performSegueWithIdentifier(.Id, sender: nil)
+//    }
+//    
+//    override func performSegueWithIdentifier(identifier: String, sender: AnyObject?) {
+//        performedId = identifier
+//    }
+//}
+//
+//class SegueHandlerTest: XCTestCase {
+//    var controller = MyViewController()
+//    
+//    func testPerformSegue() {
+//        controller.handle()
+//        XCTAssertEqual("id", controller.performedId)
+//    }
+//    
+//    func testSegueIdentifierForSegue() {
+//        let id = controller.segueIdentifierForSegue(UIStoryboardSegue(identifier: "id", source: controller, destination: controller))
+//        XCTAssertEqual(MyViewController.SegueIdentifier.Id, id)
+//    }
+//}

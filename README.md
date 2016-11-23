@@ -2,24 +2,11 @@
 
 ## Requirements
 
-* iOS 7.0+ / OSX 10.9+
-* XCode 7.0
-* Swift 2.0
+* iOS 8.0+ / OSX 10.9+
+* XCode 8.0
+* Swift 3.0
 
 ## Integration
-
-### CocoaPods
-
-You can use [Cocoapods](https://cocoapods.org) to install `SwiftExtLib` by adding it to your `Podfile`:
-```ruby
-platform :ios, '8.0'
-use_frameworks!
-
-target 'MyApp' do
-    pod 'SwiftExtLib', :git => 'https://github.com/Hejki/SwiftExtLib.git'
-end
-```
-Note that it needs you to install CocoaPods 0.36 version, and requires your iOS deploy target >= 8.0
 
 ## Usage
 
@@ -59,7 +46,7 @@ class MyViewController: UIViewController, SegueHandler {
 }
 ```
 
-Use function `performSegueWithIdentifier` for performs the specific segue.
+Use function `performSegue(withIdentifier:sender:)` for performs the specific segue.
 ```swift
 class MyViewController: UIViewController, SegueHandler {
     ...
@@ -69,7 +56,7 @@ class MyViewController: UIViewController, SegueHandler {
 }
 ```
 
-Use function `segueIdentifierForSegue` for obtain `SegueIdentifier` for `prepareForSegue` method or otherview controller methods.
+Use function `segueIdentifier(for:)` for obtain `SegueIdentifier` for prepareForSegue method or other view controller methods.
 ```swift
 class MyViewController: UIViewController, SegueHandler {
     ...

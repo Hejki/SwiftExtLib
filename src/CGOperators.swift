@@ -22,28 +22,20 @@
 // SOFTWARE.
 //
 
-#if os(iOS)
-    import UIKit
-#else
-    import AppKit
-#endif
+import CoreGraphics
 
-public protocol TableViewHandler {
-    associatedtype CellIdentifier: RawRepresentable
+public func -(left: CGPoint, right: CGPoint) -> CGPoint {
+    return CGPoint(x: left.x - right.x, y: left.y - right.y)
 }
 
-#if os(iOS)
-public extension TableViewHandler where Self: UITableViewDataSource, CellIdentifier.RawValue == String {
-
-    func dequeueReusableCellWithIdentifier(_ cellIdentifier: CellIdentifier, tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: cellIdentifier.rawValue, for: indexPath)
-    }
+public func +(left: CGPoint, right: CGPoint) -> CGPoint {
+    return CGPoint(x: left.x + right.x, y: left.y + right.y)
 }
-#else
-//public extension TableViewHandler where Self: NSTableViewDataSource, CellIdentifier.RawValue == String {
-//    
-//    func dequeueReusableCellWithIdentifier(cellIdentifier: CellIdentifier, tableView: NSTableView, forIndexPath indexPath: NSIndexPath) -> NSTableViewCell {
-//        return tableView.dequeueReusableCellWithIdentifier(cellIdentifier.rawValue, forIndexPath: indexPath)
-//    }
-//}
-#endif
+
+public func +=(left: inout CGPoint, right: CGPoint) {
+    left = (left + right)
+}
+
+public func -=(left: inout CGPoint, right: CGPoint) {
+    left = (left - right)
+}

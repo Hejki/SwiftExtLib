@@ -22,28 +22,24 @@
 // SOFTWARE.
 //
 
-#if os(iOS)
-    import UIKit
-#else
-    import AppKit
-#endif
+import Foundation
 
-public protocol TableViewHandler {
-    associatedtype CellIdentifier: RawRepresentable
-}
-
-#if os(iOS)
-public extension TableViewHandler where Self: UITableViewDataSource, CellIdentifier.RawValue == String {
-
-    func dequeueReusableCellWithIdentifier(_ cellIdentifier: CellIdentifier, tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: cellIdentifier.rawValue, for: indexPath)
+public extension String {
+    /**
+     Swift friendly localization syntax, replaces NSLocalizedString
+     
+     - returns: The localized string.
+     */
+    public func localized() -> String {
+        return NSLocalizedString(self, comment: self)
+    }
+    
+    /**
+     Swift friendly localization syntax with format arguments, replaces String(format:NSLocalizedString)
+     
+     - returns: The formatted localized string with arguments.
+     */
+    public func localizedWithArguments(_ args: CVarArg...) -> String {
+        return String(format: localized(), arguments: args)
     }
 }
-#else
-//public extension TableViewHandler where Self: NSTableViewDataSource, CellIdentifier.RawValue == String {
-//    
-//    func dequeueReusableCellWithIdentifier(cellIdentifier: CellIdentifier, tableView: NSTableView, forIndexPath indexPath: NSIndexPath) -> NSTableViewCell {
-//        return tableView.dequeueReusableCellWithIdentifier(cellIdentifier.rawValue, forIndexPath: indexPath)
-//    }
-//}
-#endif

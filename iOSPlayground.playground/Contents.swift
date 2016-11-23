@@ -3,7 +3,7 @@
 import UIKit
 import CoreGraphics
 
-var col = UIColor.whiteColor()
+var col = UIColor.white
 
 var col2 = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
 
