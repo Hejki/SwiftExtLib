@@ -26,7 +26,7 @@ import AppKit
 
 /// Wiew with spefified colored background.
 @IBDesignable
-public class ColorView: NSView {
+open class ColorView: NSView {
 
     /// Color of bacgkround for this view
     @IBInspectable
@@ -38,7 +38,7 @@ public class ColorView: NSView {
     @IBInspectable
     var gradientAngle: Float = 0
 
-    override public func draw(_ dirtyRect: NSRect) {
+    override open func draw(_ dirtyRect: NSRect) {
         if let secondColor = backgroundColor2 { // draw gradient
             let gradient = NSGradient(colors: [backgroundColor, secondColor])
             let bezierPath = NSBezierPath(rect: self.bounds)
@@ -46,7 +46,7 @@ public class ColorView: NSView {
             gradient?.draw(in: bezierPath, angle: CGFloat(gradientAngle))
         } else {
             backgroundColor.setFill()
-            NSRectFill(dirtyRect)
+            dirtyRect.fill()
         }
     }
 }

@@ -24,24 +24,24 @@
 
 import Foundation
 
-public class OrderedSetArrayValueTransformer: ValueTransformer {
+open class OrderedSetArrayValueTransformer: ValueTransformer {
 
-    override public class func transformedValueClass() -> AnyClass {
+    override open class func transformedValueClass() -> AnyClass {
         return NSArray.self
     }
 
-    override public class func allowsReverseTransformation() -> Bool {
+    override open class func allowsReverseTransformation() -> Bool {
         return true
     }
 
-    override public func transformedValue(_ value: Any?) -> Any? {
+    override open func transformedValue(_ value: Any?) -> Any? {
         if let orderedSet = value as? NSOrderedSet {
             return orderedSet.array
         }
         return nil
     }
 
-    override public func reverseTransformedValue(_ value: Any?) -> Any? {
+    override open func reverseTransformedValue(_ value: Any?) -> Any? {
         if let array = value as? [AnyObject] {
             return NSOrderedSet(array: array)
         }

@@ -74,29 +74,29 @@ public extension SegueHandler where Self: UIViewController, SegueIdentifier.RawV
         return segueIdentifier
     }
 }
-#else
-public extension SegueHandler where Self: NSSeguePerforming, SegueIdentifier.RawValue == String {
-    
-    /**
-     Performs the specified segue.
-     
-     - parameter identifier: defined segue identifier
-     - parameter sender: The object that you want to use to initiate the segue. This parameter makes the object available to your implementation during the segue. Default value is nil
-     */
-    @available(OSX 10.10, *)
-    public func performSegue(withIdentifier identifier: SegueIdentifier, sender: Any? = nil) {
-        performSegue?(withIdentifier: identifier.rawValue, sender: sender)
-    }
-
-    @available(OSX 10.10, *)
-    public func segueIdentifier(for segue: NSStoryboardSegue) throws -> SegueIdentifier {
-        guard let identifier = segue.identifier,
-            let segueIdentifier = SegueIdentifier(rawValue: identifier) else {
-                throw HSCAppError.invalidSegueIdentifier(identifier: segue.identifier)
-        }
-        
-        return segueIdentifier
-    }
-}
+//#else
+//public extension SegueHandler where Self: NSSeguePerforming, SegueIdentifier.RawValue == String {
+//
+//    /**
+//     Performs the specified segue.
+//
+//     - parameter identifier: defined segue identifier
+//     - parameter sender: The object that you want to use to initiate the segue. This parameter makes the object available to your implementation during the segue. Default value is nil
+//     */
+//    @available(OSX 10.10, *)
+//    public func performSegue(withIdentifier identifier: SegueIdentifier, sender: Any? = nil) {
+//        performSegue?(withIdentifier: NSStoryboardSegue.Identifier(rawValue: identifier.rawValue), sender: sender)
+//    }
+//
+//    @available(OSX 10.10, *)
+//    public func segueIdentifier(for segue: NSStoryboardSegue) throws -> SegueIdentifier {
+//        guard let identifier = segue.identifier,
+//            let segueIdentifier = SegueIdentifier(rawValue: identifier) else {
+//                throw HSCAppError.invalidSegueIdentifier(identifier: segue.identifier.map { $0.rawValue })
+//        }
+//
+//        return segueIdentifier
+//    }
+//}
 #endif
 

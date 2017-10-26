@@ -24,7 +24,7 @@
 
 import Foundation
 
-public class StreamReader {
+open class StreamReader {
 
     let encoding: String.Encoding
     let chunkSize: Int
@@ -56,7 +56,7 @@ public class StreamReader {
     }
 
     /// Return next line, or nil on EOF.
-    public func nextLine() -> String? {
+    open func nextLine() -> String? {
         precondition(fileHandle != nil, "Attempt to read from closed file")
 
         if atEof {
@@ -94,14 +94,14 @@ public class StreamReader {
     }
 
     /// Start reading from the beginning of file.
-    public func rewind() -> Void {
+    open func rewind() -> Void {
         fileHandle.seek(toFileOffset: 0)
         buffer.length = 0
         atEof = false
     }
 
     /// Close the underlying file. No reading must be done after calling this method.
-    public func close() -> Void {
+    open func close() -> Void {
         fileHandle?.closeFile()
         fileHandle = nil
     }

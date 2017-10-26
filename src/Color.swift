@@ -102,7 +102,7 @@ public extension Color {
      */
     func hexString(withAlpha: Bool = false) -> String? {
         #if os(macOS)
-            guard let color = self.usingColorSpaceName(NSCalibratedRGBColorSpace) else { return nil }
+            guard let color = self.usingColorSpaceName(NSColorSpaceName.calibratedRGB) else { return nil }
             let red = Int(color.redComponent * 0xFF)
             let green = Int(color.greenComponent * 0xFF)
             let blue = Int(color.blueComponent * 0xFF)
